@@ -11,3 +11,8 @@ public class DemoApplication {
 	}
 
 }
+
+/*
+H2와 JPA를 활용해 DB사용
+DTO --controller--> Entity --repository--> DB
+ */

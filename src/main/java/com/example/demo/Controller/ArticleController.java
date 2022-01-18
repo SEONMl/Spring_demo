@@ -82,4 +82,5 @@ public class ArticleController {
         // 뷰 페이지 설정
         return "articles/edit";
     }
+
 }

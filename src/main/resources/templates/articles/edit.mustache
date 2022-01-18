@@ -1,0 +1,16 @@
+{{>layouts/header}}
+
+{{#article}}
+
+<!--수정폼은 생성폼과 비슷하기 때문에 new 복붙-->
+<form action="" method="post"> <!-- 어디로 어떻게? -->
+    <p>제목 <input type="text" name="title" value="{{title}}"> </p>
+    <p>내용 <input type ="text" name="content" value="{{content}}"> </p>
+    <button type="submit">제출</button>
+
+    <a href="/articles/{{id}}">Back</a>
+</form>
+
+{{/article}}
+
+{{>layouts/footer}}

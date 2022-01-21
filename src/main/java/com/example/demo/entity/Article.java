@@ -24,6 +24,13 @@ public class Article {
     @Column
     private String content;
 
+    public void patch(Article article) {
+        if(article.title != null){
+            this.title = article.title;
+        }
+        if (article.content != null) this.content=article.content;
+    }
+
     /*
     게터를 만들어도 되지만 우리는? 롬복을 쓴다.
     public Long getId() {

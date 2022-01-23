@@ -56,7 +56,6 @@ public class ArticleService {
         target.patch(article);
         Article updated = articleRepository.save(target);
         return updated;
-
     }
 
     public Article delete(Long id) {

@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -53,6 +54,7 @@ class ArticleServiceTest {
         assertEquals(expected.toString(), article.toString());
     }
 
+    @Test
     void show_실패___존재하지_않는_id_입력() {
         // 예상
         Long id = -1L;
@@ -66,6 +68,7 @@ class ArticleServiceTest {
     }
 
     @Test
+    @Transactional // 트랜잭션 선언 안 할 시 다음 테스트에도 영향이 가기 때문 | 테스트가 끝남과 동시에 롤백됨
     void create_성공___title과_content만_있는_dto_입력() {
         // 예상
         String title="dddd";
@@ -81,6 +84,7 @@ class ArticleServiceTest {
     }
 
     @Test
+    @Transactional // 데이터가 생성, 삭제, 변경될 때 필요함
     void create_실패___id가_포함된_dto_입력() {
         // 예상
         String title="";
@@ -93,5 +97,42 @@ class ArticleServiceTest {
 
         // 비교
         assertEquals(expected, article);
+    }
+
+    //나머지 테스트는 과제...
+    @Test
+    @Transactional
+    void update_성공___존재하는_id와_title_content가_있는_dto_입력() {
+
+    }
+
+    @Test
+    @Transactional
+    void update_성공___존재하는_id와_title만_있는_dto_입력() {
+
+    }
+
+    @Test
+    @Transactional
+    void update_실패___존재하지_않는_id의_dto_입력() {
+
+    }
+
+    @Test
+    @Transactional
+    void update_실패___id만_있는_dto_입력() {
+
+    }
+
+    @Test
+    @Transactional
+    void delete_성공___존재하는_id_입력() {
+
+    }
+
+    @Test
+    @Transactional
+    void delete_실패___존재하지_않는_id_입력() {
+
     }
 }
